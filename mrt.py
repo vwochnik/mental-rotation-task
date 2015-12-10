@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from mrt.__main__ import main
 
 """This file is merely a proxy file for the mrt module. You can either invoke
