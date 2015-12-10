@@ -46,4 +46,4 @@ class Logic:
 
         # compute average time
         count = self.tests_completed + self.tests_failed
-        self.avgerage_time = int(round(float((count-1) * self.average_time + duration) / float(count)))
+        self.average_time = int(round(float((count-1) * self.average_time + duration) / float(count)))

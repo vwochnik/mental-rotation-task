@@ -21,6 +21,7 @@ class Main:
 
         # start game with clear surface
         self.drawer.clear()
+        self.draw_info()
         pygame.display.flip()
 
         # spwn number in one second after game start
@@ -49,6 +50,7 @@ class Main:
 
         transform = self.logic.current_transform
         self.drawer.draw(transform)
+        self.draw_info()
         pygame.display.flip()
 
     def submit(self, key):
@@ -63,7 +65,13 @@ class Main:
 
             # make number disappear
             self.drawer.clear()
+            self.draw_info()
             pygame.display.flip()
 
             # spawn another test in one second
             pygame.time.set_timer(SPAWN, 1000)
+
+    def draw_info(self):
+        text = "Tests Completed: %d\nTests Failed: %d\nAverage Time: %f sec" % (self.logic.tests_completed, self.logic.tests_failed, (float(self.logic.average_time)/1000.0))
+        self.drawer.render_text(text, False)
+        self.drawer.render_text("Press R if rotated\nPress F if flipped\nPress SPACE if neither apply", True)
